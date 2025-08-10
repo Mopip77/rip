@@ -18,6 +18,7 @@ mod errors {
 }
 use errors::*;
 
+
 include!("util.rs");
 
 const GRAVEYARD: &str = "/tmp/graveyard";
@@ -99,6 +100,18 @@ Send files to the graveyard (/tmp/graveyard-$USER by default) instead of unlinki
                 .help("Prints some info about TARGET before prompting for action")
                 .short("i")
                 .long("inspect"),
+        )
+        .arg(
+            Arg::with_name("recursive")
+                .help("This flag is only for compatibility with the rm command; it does not have any effect.")
+                .short("r")
+                .long("recursive"),
+        )
+        .arg(
+            Arg::with_name("force")
+                .help("This flag is only for compatibility with the rm command; it does not have any effect.")
+                .short("f")
+                .long("force"),
         )
         .get_matches();
 
